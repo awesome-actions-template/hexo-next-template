@@ -27,3 +27,6 @@ jobs:
       - uses: yrpang/github-actions-hexo@v1.3
         with:
           deploykey: ${{ secrets.GITHUB_TOKEN }}
+          github_page_repository: ${{ env.GITHUB_REPOSITORY }}
+          github_page_repository_branch: gh-pages
+          branch: main
