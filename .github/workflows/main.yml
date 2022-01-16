@@ -1,5 +1,5 @@
 # 工作流的名称
-name: hugo-deploy
+name: hexo-deploy
 
 # 触发事件
 on:
@@ -13,8 +13,6 @@ on:
       - main
   workflow_dispatch:
 
-name: Hexo Build and Deploy
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,6 +23,7 @@ jobs:
         with:
           path: node_modules
           key: ${{runner.OS}}-${{hashFiles('**/package-lock.json')}}
+
       - uses: yrpang/github-actions-hexo@v1.3
         with:
           deploykey: ${{ secrets.GITHUB_TOKEN }}
